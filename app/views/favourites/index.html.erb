@@ -4,7 +4,7 @@
     <% @favourites.each do |favourite| %>
     <div class="card-product my-2">
       <%= cl_image_tag(favourite.car.image,
-        width: 400, height: 200, crop: :fill, quality: 100) %>
+        width: 400, height: 200, crop: :fit, quality: 100) %>
 
       <div class="card-product-infos d-flex justify-content-between">
         <div class="info">
