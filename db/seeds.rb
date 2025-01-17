@@ -9,8 +9,10 @@
 #   end
 
 # db/seeds.rb
-
+Review.destroy_all
 Car.destroy_all
+Favourite.destroy_all
+
 Owner.destroy_all
 
 
@@ -19,11 +21,17 @@ owner_1 = Owner.create!(nickname: "Lambo_king")
 owner_2 = Owner.create!(nickname: "Ferrari_king")
 owner_3 = Owner.create!(nickname: "Mustang_king")
 
+# Image IDs from Cloudinary
+lamborghini_image_id = "espyqqyv7njhwjbhlprx"
+ferrari_image_id = "pxjz3odbetmwhyhazdbo"
+mustang_image_id = "l4mc2cswwucfodj9cocc"
+
 # Create Cars
 Car.create!([
   {
     brand: "Lamborghini",
     model: "Aventador",
+    image: lamborghini_image_id,
     year: 2020,
     fuel: "Petrol",
     owner: owner_1
@@ -31,6 +39,7 @@ Car.create!([
   {
     brand: "Ferrari",
     model: "Enzo",
+    image: ferrari_image_id,
     year: 2022,
     fuel: "Petrol",
     owner: owner_2
@@ -38,6 +47,7 @@ Car.create!([
   {
     brand: "Ford",
     model: "Mustang",
+    image: mustang_image_id,
     year: 2024,
     fuel: "Petrol",
     owner: owner_3

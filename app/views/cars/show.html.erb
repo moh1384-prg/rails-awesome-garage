@@ -1,32 +1,50 @@
 
-  <h1><%= @car.brand %></h1>
-  <h2><%= @car.model %></h2>
-  <h3><%= @car.year %></h3>
-  <p><%= @car.fuel %></p>
 
 
-  <% if @car.favourites.empty? %>
-    <%= simple_form_for([@car, @favourite] )do |f| %>
-    <%= f.submit 'Add garage'%>
-    <% end %>
-  <% else %>
-      <p>This car is already in your garage!</p>
-  <% end %>
+<div class="conainter d-flex mb-5 justify-content-center">
+  <div class="card">
+    <%= cl_image_tag(@car.image,
+      width: 800, height: 400, crop: :fill, quality: 100) %>
+  <div class="card-info">
+    <div class="card-details">
+      <p style="color: red; font-weight: bold;"><%= @car.brand %></p>
+      <p style="font-weight: bold; opacity: 0.7"><%= @car.model %></p>
+      <p><%= @car.fuel %></p>
+      <p><%= @car.year %></p>
+      <br>
+      <div class="garage">
+        <% if @car.favourites.empty? %>
+          <%= simple_form_for([@car, @favourite] )do |f| %>
+          <%= f.submit 'Add to garage'%>
+          <% end %>
+          <% else %>
+            <p>This car is already in your garage!</p>
+          <% end %>
+      </div>
 
-<hr>
-
-
-<h1>New Review</h1>
-
-<%= simple_form_for [@car, @review] do |f| %>
-    <%= f.input :comment %>
-    <%= f.input :rating, collection: 1..5 %>
-    <%= f.submit 'Add Review'%>
+    </div>
+    <div class="card-comment">
+      <%= simple_form_for [@car, @review] do |f| %>
+    <%= f.input :comment, label: false,  input_html: { style: "width: 300px; height: 100px;", placeholder: "Comment here.." } %>
+    <%= f.input :rating,label: false, collection: 1..5 %>
+    <%= f.submit 'Send', style:"margin-left: 250px;"%>
 <% end %>
 
-<h2>Reviews:</h2>
+    </div>
+  </div>
+  <div class="px-4">
+    <hr>
+  </div>
 <% @car.reviews.each do |review| %>
-  <p><%= review.comment %></p>
-  <p>Rating: <%= review.rating %></p>
-  <p>---------------------</p>
+<div class="d-flex justify-content-start py-0 ">
+  <p style="margin-right: 5px; margin-left: 20px;"><%= review.comment %></p>
+  <% review.rating.times do %>
+            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+  <% end %>
+</div>
+  <div class="px-4">
+    <hr>
+  </div>
 <% end %>
+  </div>
+</div>

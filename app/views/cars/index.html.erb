@@ -1,39 +1,34 @@
-<div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <div class="card-trip-infos">
-    <div>
-      <h2>Title here</h2>
-      <p>Short description here!</p>
-    </div>
-    <h2 class="card-trip-pricing">£99.99</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-  </div>
-</div>
 
-
-
-
+<div class="container mt-4">
 
 <% @cars.each do |car| %>
-
+<a href="/cars/<%= car.id %>">
 <div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
   <div class="card-trip-infos">
     <div>
-      <h2><%= car.brand %></h2>
+      <h3><%= car.brand %></h3>
       <p><%= car.model %></p>
+      <p style="color: #b1b1b1; font-size: x-small;"><%= car.created_at.strftime("%a %b %d at %I:%M %p") %></p>
     </div>
-    <h2 class="card-trip-pricing">£99.99</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+
   </div>
+
+  <%= cl_image_tag(car.image,
+      width: 400, height: 400, crop: :fit, quality: 100) %>
+
+<div class="card-trip-infos">
+  <div class="d-flex justify-content-between align-items-center ">
+    <i class="fa-regular fa-comment" > </i>
+  <p style="color:rgb(81, 76, 76); font-weight: bold; font-size: medium;">Comment</p>
+  </div>
+    <div class="card-trip-user">
+      <%= car.owner.nickname %>
+    </div>
+
 </div>
 
-
-
-
-
-
-
-
-
+</div>
 <% end %>
+</a>
+</div>
+

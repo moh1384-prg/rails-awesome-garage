@@ -1,0 +1,79 @@
+.card {
+  width: 800px;
+  height: 200px;
+  position: relative;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.card-details p {
+  margin: 0;
+}
+
+.garage {
+  position: absolute;
+  right: 16px;
+  top: 10px;
+  color: white;
+}
+
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  width: 400px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0.7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product-infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+.delete {
+  margin-left: auto;
+}
+
+.favourite .title {
+  color: red;
+  margin-right: 320px;
+  font-weight: bold;
+}
+
+.info h2 {
+  color: red;
+  font-weight: bold;
+}
+
+info p {
+  opacity: 0.8;
+}
